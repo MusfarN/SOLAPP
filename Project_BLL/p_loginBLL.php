@@ -21,10 +21,16 @@ class p_loginBLL {
         return $siteDetailArray;
     }
 
-    function getLoginDetails($inuserid,$inpassword) {
+    function getLoginDetails($inuserid, $inpassword) {
         $p_loginDAL = new p_loginDAL();
-        $loginDetailArray = $p_loginDAL->getLoginDetails($inuserid,$inpassword);
+        $loginDetailArray = $p_loginDAL->getLoginDetails($inuserid, $inpassword);
         return $loginDetailArray;
+    }
+
+    function getUserDetails($inuserid) {
+        $p_loginDAL = new p_loginDAL();
+        $userDetailArray = $p_loginDAL->getUserDetails($inuserid);
+        return $userDetailArray;
     }
 
 }

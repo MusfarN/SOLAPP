@@ -1,3 +1,8 @@
+<?php
+include_once '/Project_BLL/p_loginBLL.php';
+$p_loginBLL = new p_loginBLL();
+$userDetailArray = $p_loginBLL->getUserDetails($_SESSION["username"]);
+?>
 <aside class="main-sidebar">
     <section class="sidebar">
         <div class="user-panel">
@@ -5,7 +10,7 @@
                 <img src="assets/img/user.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>USER ADMIN</p>
+                <p><?php echo $userDetailArray[0]; ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>

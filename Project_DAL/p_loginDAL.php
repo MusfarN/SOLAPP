@@ -27,4 +27,13 @@ class p_loginDAL {
         return $loginDetailArray;
     }
 
+    function getUserDetails($inuserid) {
+        $userDetailArray = array();
+        $p_connect = new p_connect();
+        $fetchUserDetails = "CALL SPGETUSERDETAILS('$inuserid')";
+        $userDetailRecords = mysqli_fetch_assoc(mysqli_query($p_connect->getConnectionDetails(), $fetchUserDetails));
+        array_push($userDetailArray, $userDetailRecords["USERNAME"], $userDetailRecords["EMAILID"], $userDetailRecords["CONTACTNUMBER"]);
+        return $userDetailArray;
+    }
+
 }
